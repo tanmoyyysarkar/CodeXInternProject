@@ -8,6 +8,7 @@ const form = document.getElementById("login-form");
 const emailInput = document.getElementById("email");
 const rememberCheckbox = document.getElementById("rememberMe");
 
+//Function to check the strength of the password, score (0-4)
 const checkPasswordStrength =(password)=>{
     let score = 0;
     if(password.length >= 8) score++;
@@ -17,6 +18,7 @@ const checkPasswordStrength =(password)=>{
     return score;
 }
 
+//password strength bar functionality
 passwordInput.addEventListener("input", ()=>{
     const password = passwordInput.value;
     const score = checkPasswordStrength(password);
@@ -50,10 +52,12 @@ passwordInput.addEventListener("input", ()=>{
     strengthBar.style.backgroundColor = color;
 });
 
+//hide and show password function
 showPasswordCheckbox.addEventListener("change", ()=>{
     passwordInput.type = showPasswordCheckbox.checked ? "text" : "password";
 });
 
+//input validation function
 form.addEventListener("submit", (e)=>{
     const email = emailInput.value.trim();
     if(!emailRegex.test(email)){
@@ -65,6 +69,7 @@ form.addEventListener("submit", (e)=>{
     }
 })
 
+//simulating remember me fucntionality using local storage
 form.addEventListener("submit", (e)=>{
     if(rememberCheckbox.checked){
         localStorage.setItem("rememberedEmail", emailInput.value.trim());
@@ -73,3 +78,12 @@ form.addEventListener("submit", (e)=>{
         localStorage.removeItem("rememberedEmail");
     }
 })
+
+window.addEventListener("DOMContentLoaded",()=>{
+    const rememberedEmail = localStorage.getItem("rememberedEmail");
+    if(rememberedEmail){
+        emailInput.value = rememberedEmail;
+        rememberCheckbox.checked = true;
+    }
+})
+
