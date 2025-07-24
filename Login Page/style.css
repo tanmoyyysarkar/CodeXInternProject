@@ -1,64 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Delius", cursive;
 }
 
-body{
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background: url(./Assets/wp8903719-rain-world-wallpapers.png);
-     background-size: cover;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center top;
 }
 
-.wrapper{
+.wrapper {
     width: 420px;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(10px);
     box-shadow: rgba(0, 0, 0, .2);
-    color: rgb(244, 92, 255);
+    color: rgb(240, 30, 255);
     border-radius: 10px;
     padding: 30px 30px;
 }
 
-.wrapper h1{
-    font-size: 36px;
+.wrapper h1 {
+    font-size: 42px;
     text-align: center;
+
 }
 
-.wrapper .input-box{
+.wrapper .input-box {
     position: relative;
     width: 100%;
     height: 50px;
     margin: 30px 0;
 }
 
-.input-box input{
+.input-box input {
     width: 100%;
     height: 100%;
     background: transparent;
     border: none;
     outline: none;
-    border: 2px solid rgba(255,255,255,0.2);
-    border-radius: 40px ;
+    border: 2px solid #d400ff;
+    border-radius: 40px;
     font-size: 16px;
     color: #fff;
     padding: 20px 45px 20px 20px;
 }
 
-.input-box input::placeholder{
+.input-box input::placeholder {
     color: white;
 }
 
-.input-box i{
+.input-box i {
     position: absolute;
     right: 20px;
     top: 50%;
@@ -66,7 +67,7 @@ body{
     font-size: 20px;
 }
 
-.wrapper .remember-forgot{
+.wrapper .remember-forgot {
     display: flex;
     justify-content: space-between;
     font-size: 14.5px;
@@ -74,24 +75,24 @@ body{
     color: white;
 }
 
-.remember-forgot label input{
-    accent-color: white;
+.remember-forgot label input {
+    accent-color: #d400ff;
     margin-right: 3px;
 }
 
-.remember-forgot a{
+.remember-forgot a {
     color: white;
     text-decoration: none;
 }
 
-.remember-forgot a:hover{
+.remember-forgot a:hover {
     text-decoration: underline;
 }
 
-.wrapper .btn{
+.wrapper .btn {
     width: 100%;
     height: 45px;
-    background: #fff;
+    background: white;
     border: none;
     outline: none;
     border-radius: 40px;
@@ -100,24 +101,77 @@ body{
     font-size: 16px;
     color: #333;
     font-weight: 600;
+    transition: background 0.3s ease, color 0.3s ease, border 0.3s ease;
 }
 
-.wrapper .register-link{
+.btn:hover {
+    background: transparent;
+    backdrop-filter: blur(10px);
+    color: #d400ff;
+    border: 2px solid #d400ff;
+    transition: background 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+.wrapper .register-link {
     font-size: 14.5px;
     text-align: center;
     margin: 20px 0 15px;
 }
 
-.register-link p a{
+.register-link p a {
     color: rgb(255, 255, 255);
     text-decoration: none;
     font-weight: 600;
 }
 
-.register-link p a:hover{
+.register-link p a:hover {
     text-decoration: underline;
 }
 
-p{
+p {
     color: white;
+}
+
+#bubbleMessage {
+    position: absolute;
+    background: transparent;
+    backdrop-filter: blur(60px);
+    color: #ffffff;
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 25px 25px 25px 5px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    font-family: inherit;
+    z-index: 1000;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+    white-space: nowrap;
+}
+
+#bubbleMessage.hidden {
+    opacity: 0;
+    transform: translateX(-10px);
+    pointer-events: none;
+}
+
+#bubbleMessage.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 20px;
+    color: #d400ff;
+    pointer-events: auto;
+    z-index: 10;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.toggle-password:hover {
+    color: #ffffff;
+    transform: translateY(-50%) scale(1.1);
 }

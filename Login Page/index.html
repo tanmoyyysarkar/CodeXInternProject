@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,17 +7,18 @@
     <link rel="stylesheet" href="./style.css">
     <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
     <div class="wrapper">
         <form action="">
-            <h1>Login</h1>
+            <h1>LOGIN</h1>
             <div class="input-box">
                 <input type="text" placeholder="Email" required>
-                <i class='bxr  bxs-user'  ></i> 
+                <i class='bxr  bxs-user'></i>
             </div>
             <div class="input-box">
-               <input type="password" placeholder="Password" required>
-               <i class='bxr  bxs-lock'  ></i>
+                <input type="password" id="password" placeholder="Password" required>
+                <i class='bx bx-sm bxs-lock toggle-password' id="togglePasswordIcon"></i>
             </div>
             <div class="remember-forgot">
                 <label><input type="checkbox"> Remember me</label>
@@ -28,5 +30,8 @@
             </div>
         </form>
     </div>
+    <div id="bubbleMessage" class="hidden"></div>
+    <script src="./script.js"></script>
 </body>
+
 </html>
