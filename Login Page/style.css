@@ -175,3 +175,51 @@ p {
     color: #ffffff;
     transform: translateY(-50%) scale(1.1);
 }
+
+.message-bubble {
+  position: absolute;
+  top: 105%; /* adjust depending on placement */
+  right: 0;
+  width: max-content;
+  max-width: 250px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 14px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 1;
+  transform: scale(1);
+  z-index: 5;
+}
+
+.message-bubble.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.95);
+}
+
+#checklistBubble {
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 440px); /* ~adjust left of wrapper */
+  transform: translateY(-50%);
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  padding: 12px 16px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  color: white;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 1;
+  max-width: 230px;
+  pointer-events: none;
+}
+
+#checklistBubble.hidden {
+  opacity: 0;
+  transform: translateY(-50%) scale(0.95);
+}
