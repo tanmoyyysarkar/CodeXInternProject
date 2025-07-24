@@ -6,6 +6,7 @@ const showPasswordCheckbox = document.getElementById("showPassword");
 const strengthMessage = document.getElementById("strengthMessage");
 const form = document.getElementById("login-form");
 const emailInput = document.getElementById("email");
+const rememberCheckbox = document.getElementById("rememberMe");
 
 const checkPasswordStrength =(password)=>{
     let score = 0;
@@ -61,5 +62,14 @@ form.addEventListener("submit", (e)=>{
     }else if(checkPasswordStrength(passwordInput.value) <= 2){
         alert("Please use a stronger password");
         e.preventDefault();
+    }
+})
+
+form.addEventListener("submit", (e)=>{
+    if(rememberCheckbox.checked){
+        localStorage.setItem("rememberedEmail", emailInput.value.trim());
+    }
+    else{
+        localStorage.removeItem("rememberedEmail");
     }
 })
